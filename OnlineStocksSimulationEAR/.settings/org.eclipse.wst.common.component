@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="OnlineStocksSimulationEAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="OnlineStocksSimulationWeb.war" deploy-path="/" handle="module:/resource/OnlineStocksSimulationWeb/OnlineStocksSimulationWeb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OnlineStocksSimulationEJB.jar" deploy-path="/" handle="module:/resource/OnlineStocksSimulationEJB/OnlineStocksSimulationEJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="OnlineStocksSimulationEJBClient.jar" deploy-path="/" handle="module:/resource/OnlineStocksSimulationEJBClient/OnlineStocksSimulationEJBClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
