@@ -11,28 +11,28 @@
 <link rel="stylesheet" type="text/css" href="systemStyle.css">
 </head>
 <body>
-<div width="500px" align=center>
+<div align=center>
 <h2>Your Account</h2>
-<P>User Name: ${requestSession.userName}</P>
-<p>Current Cash: ${requestSession.cash}</p>
+<P class="leftAlign">User Name: ${sessionScope.userID}</P>
+<p class="leftAlign">Current Cash:<fmt:formatNumber type="currency"> ${requestScope.cash}</fmt:formatNumber></p>
 <table border="1" BGCOLOR = "silver">
 <tr><th>Stock ID</th><th>Stock Name</th><th>Quantity</th><th>Buy In Price</th><th>Market Price</th><th>Stock Value</th></tr>
-<c:forEach items="${requestScope.onhandStocks}" var="item">
-	<tr><td>${item.getStockId() }</td>
-		<td>${item.getStockName()}</td>
+<c:forEach items="${sessionScope.onhandStocks}" var="item">
+	<tr><td>${item.getStockid() }</td>
+		<td>${item.getStockname()}</td>
 		<td>${item.getQuantity()}</td>		
 		<td><fmt:formatNumber type="currency">${item.getBuyInPrice()}</fmt:formatNumber></td>
-		<td><fmt:formatNumber type="currency">${item.getMarketPrice()}</fmt:formatNumber></td>		
-		<td><fmt:formatNumber type="currency">${item.getMarketPrice()*item.getQuantity()}</fmt:formatNumber></td>
+		<td id = "${item.getStockid() }"><fmt:formatNumber type="currency">${item.getCurrentprice()}</fmt:formatNumber></td>		
+		<td id = "${item.getStockid() }Value"><fmt:formatNumber type="currency">${item.getCurrentprice()*item.getQuantity()}</fmt:formatNumber></td>
 	</tr>
-	<c:set var="total" value="${total + item.getMarketPrice()*item.getQuantity()}" />
+	<c:set var="total" value="${total + item.getCurrentprice()*item.getQuantity()}" />
 </c:forEach>
 
-<tr><td></td><td>TOTAL Value </td><td></td><td></td><td></td>
+<tr><td></td><td></td><td></td><td></td><td>TOTAL Value</td>
 	<td><fmt:formatNumber type="currency">${total}</fmt:formatNumber></td>
 </tr>
 </table>
-<p>Account Balance: <fmt:formatNumber type="currency">${total + requestSession.cash}</fmt:formatNumber></p>
+<p class="leftAlign">Account Balance: <fmt:formatNumber type="currency">${total + requestScope.cash}</fmt:formatNumber></p>
 <br />
 <form action="${pageContext.request.contextPath}/OptionServlet" method="post">
 <input type="submit" name="option" value="Market List"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -40,6 +40,6 @@
 <input type="submit" name="option" value="Sell"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="submit" name="option" value="Logout">
 </form>
-
+</div>
 </body>
 </html>

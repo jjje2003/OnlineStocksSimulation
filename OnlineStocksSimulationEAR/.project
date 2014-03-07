@@ -3,9 +3,10 @@
 	<name>OnlineStocksSimulationEAR</name>
 	<comment></comment>
 	<projects>
-		<project>OnlineStocksSimulationWeb</project>
 		<project>OnlineStocksSimulationEJB</project>
 		<project>OnlineStocksSimulationEJBClient</project>
+		<project>OnlineStocksSimulationEntities</project>
+		<project>OnlineStocksSimulationWeb</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

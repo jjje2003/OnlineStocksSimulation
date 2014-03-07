@@ -12,5 +12,8 @@
         <dependent-module archiveName="OnlineStocksSimulationEJBClient.jar" deploy-path="/" handle="module:/resource/OnlineStocksSimulationEJBClient/OnlineStocksSimulationEJBClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="OnlineStocksSimulationEntities.jar" deploy-path="/lib" handle="module:/resource/OnlineStocksSimulationEntities/OnlineStocksSimulationEntities">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
